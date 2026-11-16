@@ -1,8 +1,8 @@
 # WDV4200 Week 2: Secrets Management
 
-> **You are on branch `1-hardcoded`: secrets are hard-coded in the source code.**
+> **You are on branch `2-shared-env`: secrets are in a `.env` file committed to the repository.**
 >
-> All the secrets are written straight into [`app.js`](app.js) as constants: an API key, database credentials and a token-signing secret. No setup is needed. Clone, install and run. That convenience is the problem: the secrets are visible to anyone who can see the code, they're saved in git history for good, and changing one means editing code and redeploying.
+> The secrets have moved out of [`app.js`](app.js) into [`.env`](.env). The [dotenv](https://www.npmjs.com/package/dotenv) package loads them into `process.env` when the app starts. The `.env` file is committed here on purpose, so cloning the repo gets you every secret and the app runs with no setup. Separating config from code is a step forward, but committing the file undoes the benefit: the secrets are still public and still saved in git history.
 >
 > | Route | Secret used | What it does |
 > | --- | --- | --- |

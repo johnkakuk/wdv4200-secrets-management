@@ -1,20 +1,17 @@
+// ---------------------------------------------------------------
+// SHARED SECRETS FILE (Part 2)
+// Secrets are no longer in the code. dotenv loads them from the .env
+// file into process.env. Here, that .env file is committed to the
+// repository, so cloning the repo also gives you every secret.
+// ---------------------------------------------------------------
+require('dotenv').config({ quiet: true })
+
 const express = require('express')
 const crypto = require('crypto')
 const app = express()
 const port = 3000
 
-// ---------------------------------------------------------------
-// HARD-CODED SECRETS (Part 1)
-// These values are written directly into the source code, so anyone
-// who can read this file or the repository can see them.
-// All of these are fake values made up for this assignment.
-// ---------------------------------------------------------------
-const API_KEY = 'wdv4200-demo-api-key-8f3a91c2'
-const DB_USER = 'app_admin'
-const DB_PASSWORD = 'Sup3rS3cretP@ssw0rd!'
-const DB_HOST = 'db.example.internal'
-const DB_NAME = 'inventory'
-const JWT_SECRET = 'hardcoded-signing-secret-do-not-use'
+const { API_KEY, DB_USER, DB_PASSWORD, DB_HOST, DB_NAME, JWT_SECRET } = process.env
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
