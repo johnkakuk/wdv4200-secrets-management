@@ -1,5 +1,15 @@
 # WDV4200 Week 2: Secrets Management
 
+> **You are on branch `1-hardcoded`: secrets are hard-coded in the source code.**
+>
+> All the secrets are written straight into [`app.js`](app.js) as constants: an API key, database credentials and a token-signing secret. No setup is needed. Clone, install and run. That convenience is the problem: the secrets are visible to anyone who can see the code, they're saved in git history for good, and changing one means editing code and redeploying.
+>
+> | Route | Secret used | What it does |
+> | --- | --- | --- |
+> | `/api/data?key=wdv4200-demo-api-key-8f3a91c2` | `API_KEY` | Returns data only if the key matches (otherwise 401) |
+> | `/db` | `DB_USER`, `DB_PASSWORD`, `DB_HOST`, `DB_NAME` | Builds a mock Postgres connection string and shows it with the password masked |
+> | `/token?user=john` | `JWT_SECRET` | Signs a simple HMAC-SHA256 token |
+
 A small Node/Express app, based on this week's example, that shows three ways of handling application secrets. All secrets in this repository are fake values made up for this assignment.
 
 ## One repository, three branches
